@@ -9,28 +9,13 @@ This project provides a simplified view of commonly used databases, how they wor
 
 | Logo | DB Type    | Description                          | Common Port | Protocol | Connection Tools                     |
 |------|------------|--------------------------------------|-------------|----------|--------------------------------------|
-| ![MySQL](https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg) | MySQL      | Open-source RDBMS                    | 3306        | TCP      | MySQL Workbench, DBeaver, HeidiSQL  |
-| ![PostgreSQL](https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg) | PostgreSQL | Advanced open-source RDBMS           | 5432        | TCP      | pgAdmin, DBeaver, DataGrip          |
-| ![SQLite](https://raw.githubusercontent.com/devicons/devicon/master/icons/sqlite/sqlite-original-wordmark.svg) | SQLite     | Lightweight file-based RDBMS         | Local File  | File     | DB Browser for SQLite, SQLiteStudio |
-| ![MongoDB](https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg) | MongoDB    | NoSQL document store                 | 27017       | TCP      | MongoDB Compass, Robo 3T            |
-| ![Redis](https://raw.githubusercontent.com/devicons/devicon/master/icons/redis/redis-original-wordmark.svg) | Redis      | In-memory key-value store (NoSQL)    | 6379        | TCP      | RedisInsight, CLI (redis-cli)       |
-| ![MSSQL](https://upload.wikimedia.org/wikipedia/commons/8/87/Sql_data_base_with_logo.png) | MSSQL      | Microsoft’s SQL Server               | 1433        | TCP      | SSMS, Azure Data Studio, DBeaver    |
-| ![Oracle](https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg) | Oracle DB  | Enterprise-level RDBMS               | 1521        | TCP      | SQL Developer, DBeaver, TOAD        |
-
-
----
-
-
-
-## 🔌 How to Connect (General Steps)
-
-1. **Install the respective DB** server.
-2. **Open ports** in firewall/security group if needed.
-3. Use the **connection tool** with:
-   - **Host/IP** of the DB
-   - **Port**
-   - **Username/Password**
-   - **DB name** (if required)
+| <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" width="80"/> | MySQL      | Open-source RDBMS                    | 3306        | TCP      | MySQL Workbench, DBeaver, HeidiSQL  |
+| <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" width="80"/> | PostgreSQL | Advanced open-source RDBMS           | 5432        | TCP      | pgAdmin, DBeaver, DataGrip          |
+| <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sqlite/sqlite-original-wordmark.svg" width="80"/> | SQLite     | Lightweight file-based RDBMS         | Local File  | File     | DB Browser for SQLite, SQLiteStudio |
+| <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" width="80"/> | MongoDB    | NoSQL document store                 | 27017       | TCP      | MongoDB Compass, Robo 3T            |
+| <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redis/redis-original-wordmark.svg" width="80"/> | Redis      | In-memory key-value store (NoSQL)    | 6379        | TCP      | RedisInsight, CLI (redis-cli)       |
+| <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Sql_data_base_with_logo.png" width="80"/> | MSSQL      | Microsoft’s SQL Server               | 1433        | TCP      | SSMS, Azure Data Studio, DBeaver    |
+| <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg" width="80"/> | Oracle DB  | Enterprise-level RDBMS               | 1521        | TCP      | SQL Developer, DBeaver, TOAD        |
 
 ---
 
