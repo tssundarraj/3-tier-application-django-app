@@ -1,4 +1,7 @@
-# Simple Notes App for TWS Community
+# 🧱 3-Tier Django Application Architecture (Python + Nginx + MySQL)
+This setup follows a classic 3-tier architecture for deploying a Django web application:
+
+
 This is a simple notes app built with React and Django.
 
 ## Requirements
@@ -27,4 +30,4 @@ docker run -d -p 8000:8000 notes-app:latest
 Install Nginx reverse proxy to make this application available
 
 `sudo apt-get update`
-`sudo apt install nginx`
+`sudo apt install nginx`.
