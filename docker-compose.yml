@@ -36,9 +36,9 @@ services:
       - notes-app-nw
 
   db:
-    image: mysql
+    image: mysql:8.0.41-oraclelinux9
     container_name: "db_cont"
-    environment:
+    env_file:
       - .env
     volumes:
       - ./mysql-data:/var/lib/mysql
