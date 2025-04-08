@@ -1,33 +1,108 @@
-# 🧱 3-Tier Django Application Architecture (Python + Nginx + MySQL)
-This setup follows a classic 3-tier architecture for deploying a Django web application:
+readme_content = """
+# 🧱 3-Tier Django Notes App (React + Django + PostgreSQL + Nginx)
 
+This project demonstrates a classic 3-tier architecture application built using:
 
-This is a simple notes app built with React and Django.
+- **Frontend:** React (served via Nginx)
+- **Backend:** Django REST Framework + Gunicorn
+- **Database:** PostgreSQL (with Dockerized persistence)
+- **Web Server / Reverse Proxy:** Nginx
 
-## Requirements
-1. Python 3.9
-2. Node.js
-3. React
+A simple **Notes App** allowing users to create, edit, and manage notes through a RESTful API and modern frontend.
 
-## Installation
-1. Clone the repository
+---
+
+## 🧰 Requirements
+
+- Docker
+- Docker Compose (optional but recommended)
+- Git
+
+---
+## 📁 Folder Structure (Simplified)
+
+```bash
+django-notes-app/
+├── backend/              # Django backend
+├── frontend/             # React frontend
+├── nginx/                # Nginx config
+├── docker-compose.yml
+├── Dockerfile
+└── README.md
+
 ```
+
+## 🚀 Quick Start
+
+### 1. Clone the Repository
+
+```bash
 git clone https://github.com/LondheShubham153/django-notes-app.git
-```
+cd django-notes-app
 
-2. Build the app
+```
+### 2. Build the Application 
+
 ```
 docker build -t notes-app .
 ```
-
-3. Run the app
+Or, if using Docker Compose:
+```
+docker-compose up --build
+```
+### 3. Run the Containers
 ```
 docker run -d -p 8000:8000 notes-app:latest
 ```
+Or, with Nginx and PostgreSQL via Compose:
+```
+docker-compose up -d
+```
+### 4. Access the App
 
-## Nginx
+Frontend: http://localhost
 
-Install Nginx reverse proxy to make this application available
+Backend API: http://localhost:8000/api
 
-`sudo apt-get update`
-`sudo apt install nginx`.
+Admin Panel: http://localhost:8000/admin
+
+## ⚙️ Tech Stack
+
+| Layer      | Technology              |
+|------------|--------------------------|
+| Frontend   | React.js                 |
+| Backend    | Django, Gunicorn         |
+| Database   | PostgreSQL (Docker)      |
+| Web Server | Nginx (Reverse Proxy)    |
+
+## 📝 Setup Details
+
+- **Django** uses **Gunicorn** as the WSGI server.
+- **PostgreSQL** runs in a container with **volume-mounted** data for persistence.
+- **Nginx** serves the React frontend and proxies API requests to Django backend.
+
+---
+
+
+## 🛠 Development Tips
+### Apply Django migrations inside the container if needed:
+
+```
+docker exec -it django_cont python manage.py migrate
+
+```
+### Create a Django superuser:
+```
+docker exec -it django_cont python manage.py createsuperuser
+```
+
+## 🧼 To-Do / Improvements
+
+- 🔒 Add HTTPS with Let's Encrypt  
+- 🚀 Integrate CI/CD for automated builds  
+- 🧪 Add unit and integration tests  
+
+---
+
+## 🧾 License 
+**Author:** T S Sundar Raj

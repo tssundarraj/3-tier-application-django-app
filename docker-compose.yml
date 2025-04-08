@@ -2,8 +2,8 @@ version: "3.8"
 
 services:
   nginx:
-    build: 
-      context: ./nginx
+    build: ./nginx
+    image: nginx
     container_name: "nginx_cont"
     ports:
       - "80:80"
@@ -13,21 +13,21 @@ services:
     networks:
       - notes-app-nw
 
-      
-
   django_app:
-    build: .
+    build:
+      context: .
+    image: django_app
     container_name: "django_cont"
     ports:
       - "8000:8000"
     command: sh -c "python manage.py migrate --noinput && gunicorn notesapp.wsgi --bind 0.0.0.0:8000"
     env_file:
-      - .env
+      - ".env"
     depends_on:
       - db
     restart: always
     healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:8000/admin || exit 1"]
+      test: ["CMD-SHELL", "curl -f -L http://localhost:8000/admin/login/?next=/admin/ || exit 1"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -36,24 +36,30 @@ services:
       - notes-app-nw
 
   db:
-    image: mysql:8.0.41-oraclelinux9
+    image: postgres:latest
     container_name: "db_cont"
     env_file:
-      - .env
+        - ".env"
     volumes:
-      - ./mysql-data:/var/lib/mysql
+      - ./data/postgres/db:/var/lib/postgresql/data 
+    ports:
+      - "5432:5432"
+    restart: always
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
+      test: ["CMD", "pg_isready", "-U", "postgres"]
       interval: 10s
       timeout: 5s
       retries: 5
-      start_period: 60s
+      start_period: 30s
     networks:
       - notes-app-nw
-
 volumes:
-  mysql-data:
-
+  db:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./data/postgres/db
+      o: bind
 networks:
   notes-app-nw:
     name: notes-app-nw
